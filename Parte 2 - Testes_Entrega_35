@@ -1,0 +1,156 @@
+//******************************************//
+//SEXTO REQUISITO// SEGUNDA AVALIAÇÃO
+//******************************************//
+function teste_Menu_2_1_a() {
+  //a. Usou ‘Oswald’ a 14px através do body;
+  let element = document.querySelector("body");
+  let teste_fontFamily = "Oswald";
+  let test_fontSize = "14px";
+  let fontFamily = getComputedStyle(element).fontFamily;
+  let fontSize = getComputedStyle(element).fontSize;
+
+  if (!fontFamily.includes(teste_fontFamily)) {
+    console.error(
+      "Não aplicou font-Family (" + teste_fontFamily + ") apropriada no body"
+    );
+  }
+
+  if (!fontSize.includes(test_fontSize)) {
+    console.error("Não aplicou font-size (" + test_fontSize + ") no body");
+  }
+}
+//******************************************//
+//SÉTIMO REQUISITO// SEGUNDA AVALIAÇÃO
+//******************************************//
+
+function teste_Menu_2_1_b() {
+  // b. Aplicou ‘Bungee Inline’ a 46px com um peso mais leve ao nome do restaurante;
+  let element = "";
+  if (document.querySelector("#restaurant_name")) {
+    element = document.querySelector("#restaurant_name");
+  } else {
+    element = document.querySelector("h1");
+  }
+  let teste_fontFamily = "Bungee Inline";
+  let teste_fontSize = "46px";
+  let teste_fontWeight = "100";
+  let fontFamily = getComputedStyle(element).fontFamily;
+  let fontSize = getComputedStyle(element).fontSize;
+  let fontWeight = getComputedStyle(element).fontWeight;
+
+  if (!fontFamily.includes(teste_fontFamily)) {
+    console.error(
+      "Não aplicou font-family (" + teste_fontFamily + ") no título <h1>"
+    );
+  }
+
+  if (!fontSize.includes(teste_fontSize)) {
+    console.error(
+      "Não aplicou fonte-size (" + teste_fontSize + ") no título <h1>"
+    );
+  }
+
+  if (!fontWeight.includes(teste_fontWeight)) {
+    console.error("Não aplicou fonte-weight  (" + teste_fontWeight + ")");
+  }
+}
+teste_Menu_2_1_b();
+
+//******************************************//
+//OITAVO REQUISITO// SEGUNDA AVALIAÇÃO
+//******************************************//
+
+function teste_Menu_2_1_c() {
+  // c. Adicionou negrito e 16px a cada nome de item do menu.
+  let element = document.querySelector("#starters dl dt");
+  let teste_fontWeight = "700";
+  let teste_fontSize = "16px";
+  let fontWeight = getComputedStyle(element).fontWeight;
+  let fontSize = getComputedStyle(element).fontSize;
+
+  if (!fontWeight.includes(teste_fontWeight)) {
+    console.error(
+      "Não aplicou font-Weight (" +
+        teste_fontWeight +
+        ")  cada nome de item do menu"
+    );
+  }
+
+  if (!fontSize.includes(teste_fontSize)) {
+    console.error(
+      "Não aplicou fonte-size (" +
+        teste_fontSize +
+        ")  cada nome de item do menu"
+    );
+  }
+}
+teste_Menu_2_1_c();
+
+function teste_Menu_2_2() {
+  //VERIFICAÇÃO TÍTULO //b. Aplicou #6d4c41 aos cabeçalhos das seções; -
+  let element = document.querySelector("#starters>h2");
+  let teste_textTransform = "uppercase";
+  let textTransform = getComputedStyle(element).textTransform;
+  if (!textTransform.includes(teste_textTransform)) {
+    console.error(
+      "Não aplicou  (" + teste_textTransform + ") nos títulos de sessão"
+    );
+  }
+}
+teste_Menu_2_2();
+
+function teste_Menu_2_4() {
+  let element = document.querySelector("address");
+  let teste_right = "right";
+  let textAlign = getComputedStyle(element).textAlign;
+  if (!textAlign.includes(teste_right)) {
+    console.error("Não aplicou  (" + teste_right + ") nos títulos de sessão");
+  }
+}
+teste_Menu_2_4();
+
+function teste_Menu_2_5() {
+  //VERIFICAÇÃO TÍTULO //b. Aplicou #6d4c41 aos cabeçalhos das seções; -
+  let desserts = document.querySelector("#desserts");
+
+  let borderBlockEndColor = getComputedStyle(desserts).borderBlockEndColor;
+  let borderBlockEndWidth = getComputedStyle(desserts).borderBlockEndWidth;
+
+  if (!borderBlockEndColor.includes("rgb(0, 0, 0)")) {
+    console.error("Não aplicou  borda preta em desserts");
+  }
+
+  if (!borderBlockEndWidth.includes("2px")) {
+    console.error("Não aplicou  2px de largura em desserts");
+  }
+}
+teste_Menu_2_5();
+
+function teste_Menu_2_5_() {
+  //VERIFICAÇÃO TÍTULO //b. Aplicou #6d4c41 aos cabeçalhos das seções; -
+  let starters = document.querySelector("#starters");
+
+  let borderBlockEndColor = getComputedStyle(starters).borderBlockEndColor;
+  let borderBlockEndWidth = getComputedStyle(starters).borderBlockEndWidth;
+
+  if (!borderBlockEndColor.includes("rgb(0, 0, 0)")) {
+    console.error("Não aplicou  borda preta em starters");
+  }
+
+  if (!borderBlockEndWidth.includes("2px")) {
+    console.error("Não aplicou  2px de largura em starters");
+  }
+}
+teste_Menu_2_5_();
+
+const test_Menu_2 = () => {
+  console.log("------------MENU 2------------ ");
+  teste_Menu_2_1_a();
+  teste_Menu_2_1_b();
+  teste_Menu_2_1_c();
+  teste_Menu_2_2();
+  console.log("Vê ai se tem a virgula mano");
+  teste_Menu_2_4();
+  teste_Menu_2_5();
+};
+test_Menu_2();

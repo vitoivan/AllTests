@@ -1,0 +1,181 @@
+
+//******************************************//
+//PRIMEIRO REQUISITO//
+//******************************************//
+//Menu 1: 1. Aplicou fontes e tamanhos apropriados: -
+function test_Menu_1_1_a() {
+  //VERIFICAÇÃO BODY //a. Usou ‘Lato’ a 18px através do body;
+  let element = document.querySelector("body");
+  let teste_fontFamily = "Lato";
+  let test_fontSize = "18px";
+  let fontFamily = getComputedStyle(element).fontFamily;
+  let fontSize = getComputedStyle(element).fontSize;
+
+  if (!fontFamily.includes(teste_fontFamily)) {
+    console.error(
+      "Não aplicou font-Family (" + teste_fontFamily + ") apropriada no body"
+    );
+  }
+
+  if (!fontSize.includes(test_fontSize)) {
+    console.error("Não aplicou font-size (" + test_fontSize + ") no body");
+  }
+}
+
+function test_Menu_1_1_b() {
+  //VERIFICAÇÃO TÍTULO //b. Aplicou ‘Supermercado One’ a 45px ao nome do restaurante; -
+  let element = "";
+  if (document.querySelector("#restaurant_name")) {
+    element = document.querySelector("#restaurant_name");
+  } else {
+    element = document.querySelector("h1");
+  }
+  let teste_fontFamily = "Supermercado one";
+  let teste_fontSize = "45px";
+  let fontFamily = getComputedStyle(element).fontFamily;
+  let fontSize = getComputedStyle(element).fontSize;
+
+  if (!fontFamily.toLowerCase().includes(teste_fontFamily.toLowerCase())) {
+    console.error(
+      "Não aplicou font-family (" + teste_fontFamily + ") no título <h1>"
+    );
+  }
+
+  if (!fontSize.includes(teste_fontSize)) {
+    console.error(
+      "Não aplicou fonte-size (" + teste_fontSize + ") no título <h1>"
+    );
+  }
+}
+
+function test_Menu_1_1_c() {
+  //VERIFICAÇÃO TÍTULO //c. Adicionou negrito e 20px aos nomes de cada item do menu.
+  let element = document.querySelector("#starters dl dt");
+  let teste_fontWeight = "700";
+  let teste_fontSize = "20px";
+  let fontWeight = getComputedStyle(element).fontWeight;
+  let fontSize = getComputedStyle(element).fontSize;
+
+  if (!fontWeight.includes(teste_fontWeight)) {
+    console.error(
+      "Não adicionou negrito (" +
+        teste_fontWeight +
+        ") aos nomes de cada item do menu"
+    );
+  }
+
+  if (!fontSize.includes(teste_fontSize)) {
+    console.error(
+      "Não adicionou negrito (" +
+        teste_fontSize +
+        ") aos nomes de cada item do menu"
+    );
+  }
+}
+
+//******************************************//
+//SEGUNDO REQUISITO//
+//******************************************//
+//Menu1: 2. Usou as cores corretamente nas fontes: -
+function teste_Menu_1_2_a() {
+  //VERIFICAÇÃO TÍTULO //a. Aplicou #5d4037 ao nome do restaurante; -
+  let element = "";
+  if (document.querySelector("#restaurant_name")) {
+    element = document.querySelector("#restaurant_name");
+  } else {
+    element = document.querySelector("h1");
+  }
+  let teste_colorElement = "rgb(93, 64, 55)";
+  let color = getComputedStyle(element).color;
+
+  if (!color.includes(teste_colorElement)) {
+    console.error(
+      "Não aplicou color (" + teste_colorElement + ") ao nome do restaurante"
+    );
+  }
+}
+
+function teste_Menu_1_2_b() {
+  //VERIFICAÇÃO TÍTULO //b. Aplicou #6d4c41 aos cabeçalhos das seções; -
+  let element = document.querySelector("#starters>h2");
+  let teste_color = "rgb(109, 76, 65)";
+  let color = getComputedStyle(element).color;
+  if (!color.includes(teste_color)) {
+    console.error(
+      "Não aplicou  (" + teste_color + ") aos cabeçalhos das seções!"
+    );
+  }
+}
+
+function teste_Menu_1_2_c() {
+  //VERIFICAÇÃO TÍTULO //c. Aplicou “firebrick” ou #b22222 aos preços dos itens.
+  let element = document.querySelector("dd span.price");
+  let color = getComputedStyle(element).color;
+  if (!color.includes("rgb(178, 34, 34)")) {
+    console.error(
+      "Não aplicou “firebrick”  (rgb(178, 34, 34)) aos preços dos itens!"
+    );
+  }
+}
+
+//******************************************//
+//TERCEITO REQUISITO//
+//******************************************//
+//Menu1: 3. Os cabeçalhos das seções do menu (ex. “Starters”) estão em "small caps".
+function teste_Menu_1_3() {
+  //VERIFICAÇÃO TÍTULO //b. Aplicou #6d4c41 aos cabeçalhos das seções; -
+  let element = document.querySelector("#starters>h2");
+  let fontvariant = getComputedStyle(element).fontVariant;
+  if (!fontvariant.includes("small-caps")) {
+    console.error("Não aplicou Small caps aos cabeçalhos das seções!");
+  }
+}
+
+//******************************************//
+//QUARTO REQUISITO//
+//******************************************//
+// Menu 1: 4. Adicionou um separador entre as colunas (a "column-rule") e adicionou uma borda ao redor do endereço/rodapé.
+// O separador e a borda são tracejadas com 2px e rosybrown ou #bc8f8f.
+function teste_Menu_1_4() {
+  //VERIFICAÇÃO TÍTULO //b. Aplicou #6d4c41 aos cabeçalhos das seções; -
+  let element = document.querySelector("#menu");
+  let columnRuleColor = getComputedStyle(element).columnRuleColor;
+  let webkitColumnRuleStyle = getComputedStyle(element).webkitColumnRuleStyle;
+  let webkitColumnRuleWidth = getComputedStyle(element).webkitColumnRuleWidth;
+
+  if (!columnRuleColor.includes("rgb(188, 143, 143)")) {
+    console.error("Não aplicou (rosybrown) em column-rule");
+  }
+  if (!webkitColumnRuleStyle.includes("dashed")) {
+    console.error("Não aplicou (dashed) em column-rule");
+  }
+  if (!webkitColumnRuleWidth.includes("2px")) {
+    console.error("Não aplicou (2px) em column-rule");
+  }
+}
+
+//******************************************//
+//QUINTO REQUISITO//
+//******************************************//
+function teste_Menu_1_5() {
+  //VERIFICAÇÃO TÍTULO //b. Aplicou #6d4c41 aos cabeçalhos das seções; -
+  let element = document.querySelector("body");
+  let background = getComputedStyle(element).background;
+
+  if (!background.includes("map-bg.jpg")) {
+    console.error("Não aplicou (map-bg.jpg) como background");
+  }
+}
+const test_Menu_1 = () => {
+  console.log("------------MENU 1------------");
+  test_Menu_1_1_a();
+  test_Menu_1_1_b();
+  test_Menu_1_1_c();
+  teste_Menu_1_2_a();
+  teste_Menu_1_2_b();
+  teste_Menu_1_2_c();
+  teste_Menu_1_3();
+  teste_Menu_1_4();
+  teste_Menu_1_5();
+};
+test_Menu_1();

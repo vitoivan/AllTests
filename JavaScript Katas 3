@@ -1,0 +1,110 @@
+const createArray = (start, end, step) => {
+  let arr = [];
+  if (start < end) {
+    for (let i = start; i <= end; i += step) {
+      arr.push(i);
+    }
+  } else {
+    for (let i = start; i >= end; i -= step) {
+      arr.push(i);
+    }
+  }
+  return arr;
+};
+​
+const isEven = (number) => {
+  return number % 2 === 0;
+};
+​
+const haveMethods = (funcToCheck) => {
+  const invalidMethods = [
+    ".sort",
+    ".map",
+    ".reduce",
+    ".filter",
+    ".forEach",
+    "Math.",
+  ];
+​
+  for (let i = 0; i < invalidMethods.length; i++) {
+    if (funcToCheck.toString().includes(invalidMethods[i])) {
+      return true;
+    }
+  }
+​
+  return false;
+};
+​
+const testKata1 = () => createArray(1, 25, 1);
+const testKata2 = () => createArray(25, 1, 1);
+const testKata3 = () => createArray(-1, -25, 1);
+const testKata4 = () => createArray(-25, -1, 1);
+const testKata5 = () => createArray(25, -25, 2);
+const testKata6 = () => createArray(3, 99, 3);
+const testKata7 = () => createArray(7, 98, 7);
+const testKata8 = () =>
+  createArray(100, 1, 1).filter(
+    (number) => number % 3 === 0 || number % 7 === 0
+  );
+const testKata9 = () =>
+  createArray(5, 100, 5).filter((number) => !isEven(number));
+const testKata10 = () => sampleArray;
+const testKata11 = () => sampleArray.filter((number) => isEven(number));
+const testKata12 = () => sampleArray.filter((number) => !isEven(number));
+const testKata13 = () => sampleArray.filter((number) => number % 8 === 0);
+const testKata14 = () => sampleArray.map((number) => number ** 2);
+const testKata15 = () =>
+  createArray(1, 20, 1).reduce((number, acc) => number + acc);
+const testKata16 = () => sampleArray.reduce((number, acc) => number + acc);
+const testKata17 = () => Math.min(...sampleArray);
+const testKata18 = () => Math.max(...sampleArray);
+​
+const valuesToCompare = [
+  [kata1, testKata1],
+  [kata2, testKata2],
+  [kata3, testKata3],
+  [kata4, testKata4],
+  [kata5, testKata5],
+  [kata6, testKata6],
+  [kata7, testKata7],
+  [kata8, testKata8],
+  [kata9, testKata9],
+  [kata10, testKata10],
+  [kata11, testKata11],
+  [kata12, testKata12],
+  [kata13, testKata13],
+  [kata14, testKata14],
+  [kata15, testKata15],
+  [kata16, testKata16],
+  [kata17, testKata17],
+  [kata18, testKata18],
+];
+​
+const runTests = () => {
+  let grade = 0;
+  const scorePerKata = 1;
+  for (let i = 0; i < valuesToCompare.length; i++) {
+    let devFunction = valuesToCompare[i][0];
+    let testFunction = valuesToCompare[i][1];
+    if (haveMethods(devFunction)) {
+      console.error(`Kata${i + 1} possui metodos de Array`);
+    } else {
+      if (JSON.stringify(devFunction()) === JSON.stringify(testFunction())) {
+        console.log(`${i + 1} - Kata${i + 1} Correto`);
+        grade += scorePerKata;
+      } else {
+        console.error({
+          function: `Kata${i + 1}`,
+          expected: testFunction(),
+          got: devFunction(),
+        });
+      }
+    }
+  }
+  console.log("------------------------");
+  console.log(`Final Grade: ${grade}/18`);
+  console.log("------------------------");
+  console.log("conferir Bonus");
+};
+​
+runTests()
